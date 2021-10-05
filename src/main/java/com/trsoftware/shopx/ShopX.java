@@ -1,0 +1,71 @@
+package com.trsoftware.shopx;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+
+public class ShopX extends JavaPlugin {
+
+    public ShopX plugin;
+
+    public File messages = new File("plugins/ShopX/", "messages.yml");
+    public FileConfiguration pmessages = YamlConfiguration.loadConfiguration(messages);
+
+    @Override
+    public void onEnable() {
+        saveDefaultConfig();
+        saveDefaultMessages();
+        reloadMessages();
+
+        doInitiate();
+    }
+
+    @Override
+    public void onDisable() {
+        doUnInitiate();
+    }
+
+    private void doInitiate() {
+        plugin = this;
+    }
+
+    private void doUnInitiate() {
+        plugin = null;
+    }
+
+    public void saveDefaultMessages() {
+        try {
+            saveResource("messages.yml", false);
+        } catch (Exception e) {
+
+        }
+    }
+
+    /*
+     * The reloadMessages() method just prevents an error stemming from the first use after file generation
+     */
+
+    public void reloadMessages() {
+        pmessages = YamlConfiguration.loadConfiguration(messages);
+    }
+
+    public void sendMessage(Player p, String s) {
+        if(s.equalsIgnoreCase("")) {
+            return;
+        }
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', s));
+    }
+
+    public void sendMessageToConsole(CommandSender sender, String s) {
+        if(s.equalsIgnoreCase("")) {
+            return;
+        }
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', s));
+    }
+
+}

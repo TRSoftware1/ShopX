@@ -1,0 +1,10 @@
+name: ShopX
+description: GUI-based shop plugin
+version: 1.0-BETA
+author: TRSoftware
+main: com.trsoftware.shopx.ShopX
+depend: [Vault]
+commands:
+  shopx:
+    aliases: [shop]
+    description: Access the GUI shop
