@@ -1,5 +1,7 @@
 package com.trsoftware.shopx;
 
+import com.trsoftware.shopx.commands.ShopCommand;
+import com.trsoftware.shopx.managers.ShopManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,6 +14,10 @@ import java.io.File;
 public class ShopX extends JavaPlugin {
 
     public ShopX plugin;
+
+    public ShopCommand sc;
+
+    public ShopManager sm;
 
     public File messages = new File("plugins/ShopX/", "messages.yml");
     public FileConfiguration pmessages = YamlConfiguration.loadConfiguration(messages);
@@ -32,10 +38,18 @@ public class ShopX extends JavaPlugin {
 
     private void doInitiate() {
         plugin = this;
+
+        sc = new ShopCommand(this);
+
+        sm = new ShopManager(this);
     }
 
     private void doUnInitiate() {
         plugin = null;
+
+        sc = null;
+
+        sm = null;
     }
 
     public void saveDefaultMessages() {

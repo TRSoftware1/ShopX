@@ -1,0 +1,8 @@
+shops:
+  main:
+    title: "&c&lShopX &f- Main Shop"
+    size: 54
+    inventory:
+      0:
+        item: DIAMOND
+        name: "&bDiamond :O"
