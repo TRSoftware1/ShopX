@@ -1,8 +1,14 @@
+inventories:
+  filler:
+    enabled: true
+    item: STAINED_GLASS_PANE
+    color: BLACK
+
 shops:
   main:
     title: "&c&lShopX &f- Main Shop"
-    size: 54
+    size: 36
     inventory:
-      0:
+      10:
         item: DIAMOND
-        name: "&bDiamond :O"
+        name: "&bResources"

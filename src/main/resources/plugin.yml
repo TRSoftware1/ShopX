@@ -1,6 +1,6 @@
 name: ShopX
 description: GUI-based shop plugin
-version: 1.0-BETA
+version: 1.0.0-SNAPSHOT
 author: TRSoftware
 main: com.trsoftware.shopx.ShopX
 depend: [Vault]
